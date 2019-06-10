@@ -4,6 +4,7 @@
   "description": "Simple react hierarchy tree - any React children accepted for nodes",
   "author": "daniel-hauser",
   "license": "MIT",
+  "homepage": "https://daniel-hauser.github.com/react-organizational-chart",
   "repository": "daniel-hauser/react-organizational-chart",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
