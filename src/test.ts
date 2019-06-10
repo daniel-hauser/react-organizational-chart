@@ -1,7 +1,8 @@
-import ExampleComponent from './'
+import {Tree, TreeNode} from "./";
 
-describe('ExampleComponent', () => {
-  it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
-  })
-})
+describe("ExampleComponent", () => {
+  it("is truthy", () => {
+    expect(Tree).toBeTruthy();
+    expect(TreeNode).toBeTruthy();
+  });
+});
