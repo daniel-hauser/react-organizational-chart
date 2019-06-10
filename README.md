@@ -14,17 +14,24 @@ npm install --save react-organizational-chart
 
 ```tsx
 import * as React from 'react'
-
-import MyComponent from 'react-organizational-chart'
+import { Tree, TreeNode } from 'react-organizational-chart'
 
 class Example extends React.Component {
   render () {
     return (
-      <MyComponent />
+       <Tree label={"root"}>
+          <TreeNode label={<div>Child 1</div>}>
+            <TreeNode label={<div>Grand Child</div>} />
+          </TreeNode>
+        </Tree>
     )
   }
 }
 ```
+
+## Motivation
+
+`react-organizational-chart` is a simple, reactive tree that accept any react node as a node.
 
 ## License
 
