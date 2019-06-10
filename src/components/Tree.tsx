@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 import TreeNode, { TreeNodeProps } from "./TreeNode";
 
 const RootContainer = styled("ul")`
-  display: flex;
   padding-inline-start: 0;
+  margin: 0;
 `;
 
 const StyledRootContainer: React.ComponentType<TreeProps> = styled(

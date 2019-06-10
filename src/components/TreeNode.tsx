@@ -2,11 +2,14 @@ import * as React from "react";
 import styled from "@emotion/styled";
 
 const NodeContainer = styled("li")`
-  width: 100%;
+  flex: auto;
   text-align: center;
   list-style-type: none;
   position: relative;
-  padding: var(--tree-line-height) var(--tree-node-padding) 0 var(--tree-node-padding);
+  padding-top: var(--tree-line-height);
+  padding-right: var(--tree-node-padding);
+  padding-bottom: 0;
+  padding-left: var(--tree-node-padding);
 
   ::before,
   ::after {
@@ -24,7 +27,7 @@ const NodeContainer = styled("li")`
   }
 
   :only-child {
-    padding-top: 0;
+    padding: 0;
     ::after,
     :before {
       display: none;
@@ -69,8 +72,8 @@ const ChildrenContainer = styled("ul")`
 `;
 
 export type TreeNodeProps = React.PropsWithChildren<{
-  label: React.ReactNode,
-  className?: string
+  label: React.ReactNode;
+  className?: string;
 }>;
 
 function TreeNode({ children, label, className }: TreeNodeProps) {
