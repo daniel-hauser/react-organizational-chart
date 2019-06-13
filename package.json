@@ -53,6 +53,17 @@
     "rollup-plugin-url": "^1.4.0",
     "typescript": "^2.8.3"
   },
+  "keywords": [
+    "react",
+    "organizational",
+    "organizational-chart",
+    "react-organizational-chart",
+    "org-chart",
+    "react-org-chart",
+    "tree",
+    "family",
+    "family-tree"
+  ],
   "files": [
     "dist"
   ]
