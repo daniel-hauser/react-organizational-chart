@@ -82,8 +82,10 @@ Accepts the following props:
 * **children: _(required)_** Any number of `<TreeNode>` 
 
 ## Motivation
+I created `react-organizational-chart` because i could not find any other react organizational chart that supports react components as nodes.
 
-`react-organizational-chart` is a simple, reactive tree that accept any react node as a node.
+## Alternatives
+* [org-chart](https://www.npmjs.com/package/orgchart) is highly customizable but can't render React components as nodes.
 
 ## License
 
