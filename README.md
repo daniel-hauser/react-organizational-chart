@@ -28,7 +28,9 @@ const ExampleTree = () => (
 ## Examples
 
 ### Styled tree
-![styled tree example](example/public/images/styled_tree.png)
+
+![styled tree example](.gitbook/assets/styled_tree.png)
+
 ```jsx
 const StyledNode = styled.div`
   padding: 5px;
@@ -59,7 +61,6 @@ const StyledTreeExample = () => (
     </TreeNode>
   </Tree>
 );
-
 ```
 
 Working examples can be found [here](https://gkh4y.codesandbox.io/)
@@ -69,24 +70,29 @@ Working examples can be found [here](https://gkh4y.codesandbox.io/)
 ### `Tree` - The root of the tree
 
 Accepts the following props:
-* **label: _(required)_** Any react `Node`
-* **children: _(required)_** Any number of `<TreeNode>`
-* **lineHeight:** _(default 20px)_ The height of the Path as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
-* **lineWidth:** _(default black)_ The width of the Path as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
-* **lineColor:** _(default 20px)_ The color of the Path as a [css color](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
-* **lineBorderRadius:** _(default 5px)_ The color of the Path as a [css border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
-* **nodePadding:** _(default 5px)_ The left and right padding of every `<TreeNode>` as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+
+* **label:** _**\(required\)**_ Any react `Node`
+* **children:** _**\(required\)**_ Any number of `<TreeNode>`
+* **lineHeight:** _\(default 20px\)_ The height of the Path as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+* **lineWidth:** _\(default black\)_ The width of the Path as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+* **lineColor:** _\(default 20px\)_ The color of the Path as a [css color](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
+* **lineBorderRadius:** _\(default 5px\)_ The color of the Path as a [css border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
+* **nodePadding:** _\(default 5px\)_ The left and right padding of every `<TreeNode>` as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
 
 ### `TreeNode` - A node in the tree
-* **label: _(required)_** Any react `Node`
-* **children: _(required)_** Any number of `<TreeNode>` 
+
+* **label:** _**\(required\)**_ Any react `Node`
+* **children:** _**\(required\)**_ Any number of `<TreeNode>` 
 
 ## Motivation
+
 I created `react-organizational-chart` because i could not find any other react organizational chart that supports react components as nodes.
 
 ## Alternatives
+
 * [org-chart](https://www.npmjs.com/package/orgchart) is highly customizable but can't render React components as nodes.
 
 ## License
 
 MIT © [daniel-hauser](https://github.com/daniel-hauser)
+
