@@ -31,7 +31,6 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@svgr/rollup": "^5.1.0",
     "@types/jest": "^25.1.1",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
@@ -49,9 +48,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.2",
-    "rollup-plugin-postcss": "^2.0.6",
     "rollup-plugin-typescript2": "^0.25.3",
-    "rollup-plugin-url": "^3.0.1",
     "typescript": "^3.7.5"
   },
   "prettier": {
