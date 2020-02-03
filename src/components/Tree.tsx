@@ -1,15 +1,11 @@
-import * as React from "react";
-import styled from "@emotion/styled";
-import TreeNode, { TreeNodeProps } from "./TreeNode";
+import * as React from 'react';
+import styled from '@emotion/styled';
+import TreeNode, { TreeNodeProps } from './TreeNode';
 
-const RootContainer = styled("ul")`
+const TreeContainer: React.ComponentType<TreeProps> = styled.ul`
   padding-inline-start: 0;
   margin: 0;
-`;
 
-const StyledRootContainer: React.ComponentType<TreeProps> = styled(
-  RootContainer
-)`
   --line-height: ${({ lineHeight }) => lineHeight};
   --line-width: ${({ lineWidth }) => lineWidth};
   --line-color: ${({ lineColor }) => lineColor};
@@ -24,18 +20,32 @@ const StyledRootContainer: React.ComponentType<TreeProps> = styled(
 `;
 
 type TreeProps = {
-  lineHeight: string;
-  lineWidth: string;
-  lineColor: string;
-  lineBorderRadius: string;
-  nodePadding: string;
+  lineHeight?: string;
+  lineWidth?: string;
+  lineColor?: string;
+  lineBorderRadius?: string;
+  nodePadding?: string;
 };
 
-function Tree({ children, label, ...props }: TreeProps & TreeNodeProps) {
+function Tree({
+  children,
+  label,
+  lineHeight = '20px',
+  lineWidth = '1px',
+  lineColor = 'black',
+  nodePadding = '5px',
+  lineBorderRadius = '5px',
+}: TreeProps & TreeNodeProps) {
   return (
-    <StyledRootContainer {...props}>
+    <TreeContainer
+      lineHeight={lineHeight}
+      lineWidth={lineWidth}
+      lineColor={lineColor}
+      nodePadding={nodePadding}
+      lineBorderRadius={lineBorderRadius}
+    >
       <TreeNode label={label}>{children}</TreeNode>
-    </StyledRootContainer>
+    </TreeContainer>
   );
 }
 

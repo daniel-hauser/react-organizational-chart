@@ -1,8 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TreeNode Renders 1`] = `
+.emotion-0 {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: var(--tree-line-height) var(--tree-node-padding) 0 var(--tree-node-padding);
+}
+
+.emotion-0::before,
+.emotion-0::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 50%;
+  border-top: var(--tree-line-width) solid var(--tree-line-color);
+  height: var(--tree-line-height);
+}
+
+.emotion-0::after {
+  left: 50%;
+  border-left: var(--tree-line-width) solid var(--tree-line-color);
+}
+
+.emotion-0:only-child {
+  padding: 0;
+}
+
+.emotion-0:only-child::after,
+.emotion-0:only-child:before {
+  display: none;
+}
+
+.emotion-0:first-of-type::before {
+  border: 0 none;
+}
+
+.emotion-0:first-of-type::after {
+  border-radius: var(--tree-line-border-radius) 0 0 0;
+}
+
+.emotion-0:last-of-type::before {
+  border-right: var(--tree-line-width) solid var(--tree-line-color);
+  border-radius: 0 var(--tree-line-border-radius) 0 0;
+}
+
+.emotion-0:last-of-type::after {
+  border: 0 none;
+}
+
 <li
-  className="css-1bmag6y"
+  className="emotion-0"
 >
   test
 </li>

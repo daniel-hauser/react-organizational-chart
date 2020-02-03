@@ -1,19 +1,17 @@
-import * as React from "react";
-import styled from "@emotion/styled";
+import * as React from 'react';
+import styled from '@emotion/styled';
 
-const NodeContainer = styled("li")`
+const NodeContainer = styled.li`
   flex: auto;
   text-align: center;
   list-style-type: none;
   position: relative;
-  padding-top: var(--tree-line-height);
-  padding-right: var(--tree-node-padding);
-  padding-bottom: 0;
-  padding-left: var(--tree-node-padding);
+  padding: var(--tree-line-height) var(--tree-node-padding) 0
+    var(--tree-node-padding);
 
   ::before,
   ::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 50%;
@@ -54,14 +52,14 @@ const NodeContainer = styled("li")`
   }
 `;
 
-const ChildrenContainer = styled("ul")`
+const ChildrenContainer = styled.ul`
   display: flex;
   padding-inline-start: 0;
   padding-top: var(--tree-line-height);
   position: relative;
 
   ::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 50%;

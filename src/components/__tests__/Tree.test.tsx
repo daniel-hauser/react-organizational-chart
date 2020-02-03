@@ -1,18 +1,21 @@
-import Tree from "../Tree";
-import TreeNode from "../TreeNode";
-import React from "react";
-import renderer from "react-test-renderer";
+import Tree from '../Tree';
+import TreeNode from '../TreeNode';
+import React from 'react';
+import renderer from 'react-test-renderer';
+import serializer from 'jest-emotion';
 
-describe("Tree", () => {
-  it("is exported", () => {
+expect.addSnapshotSerializer(serializer);
+
+describe('Tree', () => {
+  it('is exported', () => {
     expect(Tree).toBeTruthy();
   });
 
-  it("Renders", () => {
+  it('Renders', () => {
     const component = renderer.create(
-      <Tree label={<div>Root</div>}>
-        <TreeNode label={<div>Child</div>}>
-          <TreeNode label={<div>Grand Child</div>} />
+      <Tree label={'Root'}>
+        <TreeNode label={'Child'}>
+          <TreeNode label={'Grand Child'} />
         </TreeNode>
       </Tree>
     );
