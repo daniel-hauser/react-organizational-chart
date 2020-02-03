@@ -37,7 +37,7 @@ function Tree({
   lineBorderRadius = '5px',
 }: TreeProps & TreeNodeProps) {
   return (
-    <TreeContainer
+    <div
       lineHeight={lineHeight}
       lineWidth={lineWidth}
       lineColor={lineColor}
@@ -45,7 +45,7 @@ function Tree({
       lineBorderRadius={lineBorderRadius}
     >
       <TreeNode label={label}>{children}</TreeNode>
-    </TreeContainer>
+    </div>
   );
 }
 
