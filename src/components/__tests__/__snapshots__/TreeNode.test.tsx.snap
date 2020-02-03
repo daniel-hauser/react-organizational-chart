@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeNode Renders 1`] = `
+<li
+  className="css-1bmag6y"
+>
+  test
+</li>
+`;

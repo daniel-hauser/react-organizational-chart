@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree Renders 1`] = `
+<ul
+  className="css-13i5t6k"
+>
+  <li
+    className="css-1bmag6y"
+  >
+    <div>
+      Root
+    </div>
+    <ul
+      className="css-s8xjl5"
+    >
+      <li
+        className="css-1bmag6y"
+      >
+        <div>
+          Child
+        </div>
+        <ul
+          className="css-s8xjl5"
+        >
+          <li
+            className="css-1bmag6y"
+          >
+            <div>
+              Grand Child
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
