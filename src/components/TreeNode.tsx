@@ -75,12 +75,15 @@ export type TreeNodeProps = React.PropsWithChildren<{
 }>;
 
 function TreeNode({ children, label, className }: TreeNodeProps) {
+
+  const filteredChildren = React.Children.toArray(children).filter((o: React.ReactNode) => o);
+
   return (
     <NodeContainer className={className}>
       {label}
-      {React.Children.count(children) > 0 && (
+      {filteredChildren.length ? (
         <ChildrenContainer>{children}</ChildrenContainer>
-      )}
+      ) : null}
     </NodeContainer>
   );
 }
