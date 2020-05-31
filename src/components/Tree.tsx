@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import TreeNode, { TreeNodeProps } from './TreeNode';
 
-const TreeContainer: React.ComponentType<TreeProps> = styled.ul`
+const TreeContainer = styled.ul<TreeProps>`
   padding-inline-start: 0;
   margin: 0;
 
