@@ -1,6 +1,6 @@
 {
   "name": "react-organizational-chart",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Simple react hierarchy tree - any React children accepted for nodes",
   "author": "daniel-hauser",
   "license": "MIT",
