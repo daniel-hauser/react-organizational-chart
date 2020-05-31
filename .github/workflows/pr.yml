@@ -1,0 +1,19 @@
+name: JS Bundle Size
+
+on:
+  pull_request:
+    types: ['opened', 'reopened', 'synchronize']
+jobs:
+  calculate-size:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.0.0'
+      - uses: sarthak-saxena/JSBundleSize@master
+        with:
+          bootstrap: 'npm install'
+          build_command: 'npm run build'
+          dist_path: 'dist'
+          token: ${{ secrets.GITHUB_TOKEN }}
