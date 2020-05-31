@@ -7,8 +7,9 @@
   "homepage": "https://daniel-hauser.github.io/react-organizational-chart",
   "repository": "daniel-hauser/react-organizational-chart",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
+  "source": "src/index.tsx",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -16,8 +17,8 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "build": "rollup -c",
-    "start": "rollup -c -w",
+    "build": "microbundle build --jsx React.createElement --external react",
+    "start": "microbundle watch",
     "prepare": "npm run build",
     "prettier": "prettier --write 'src/**/*.ts[x]'",
     "predeploy": "cd example && npm install && npm run build",
@@ -40,18 +41,13 @@
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "jest-emotion": "^10.0.27",
+    "microbundle": "^0.12.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "^3.3.1",
     "react-test-renderer": "^16.12.0",
-    "rollup": "^1.31.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.2",
-    "rollup-plugin-typescript2": "^0.25.3",
     "typescript": "^3.7.5"
   },
   "prettier": {
