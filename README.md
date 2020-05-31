@@ -2,7 +2,9 @@
 
 > Simple react hierarchy tree - any React children accepted for nodes
 
-[![NPM](https://img.shields.io/npm/v/react-organizational-chart.svg)](https://www.npmjs.com/package/react-organizational-chart) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+![CI](https://github.com/daniel-hauser/react-organizational-chart/workflows/CI/badge.svg)
+[![NPM](https://img.shields.io/npm/v/react-organizational-chart.svg)](https://www.npmjs.com/package/react-organizational-chart)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## Install
 
@@ -13,8 +15,8 @@ npm install --save react-organizational-chart
 ## Usage
 
 ```jsx
-import React from 'react'
-import { Tree, TreeNode } from 'react-organizational-chart'
+import React from 'react';
+import { Tree, TreeNode } from 'react-organizational-chart';
 
 const ExampleTree = () => (
   <Tree label={<div>Root</div>}>
@@ -41,9 +43,9 @@ const StyledNode = styled.div`
 
 const StyledTreeExample = () => (
   <Tree
-    lineWidth={"2px"}
-    lineColor={"green"}
-    lineBorderRadius={"10px"}
+    lineWidth={'2px'}
+    lineColor={'green'}
+    lineBorderRadius={'10px'}
     label={<StyledNode>Root</StyledNode>}
   >
     <TreeNode label={<StyledNode>Child 1</StyledNode>}>
@@ -71,18 +73,18 @@ Working examples can be found [here](https://gkh4y.codesandbox.io/)
 
 Accepts the following props:
 
-* **label:** _**\(required\)**_ Any react `Node`
-* **children:** _**\(required\)**_ Any number of `<TreeNode>`
-* **lineHeight:** _\(default 20px\)_ The height of the Path as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
-* **lineWidth:** _\(default black\)_ The width of the Path as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
-* **lineColor:** _\(default 20px\)_ The color of the Path as a [css color](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
-* **lineBorderRadius:** _\(default 5px\)_ The color of the Path as a [css border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
-* **nodePadding:** _\(default 5px\)_ The left and right padding of every `<TreeNode>` as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+- **label:** _**\(required\)**_ Any react `Node`
+- **children:** _**\(required\)**_ Any number of `<TreeNode>`
+- **lineHeight:** _\(default 20px\)_ The height of the Path as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+- **lineWidth:** _\(default black\)_ The width of the Path as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+- **lineColor:** _\(default 20px\)_ The color of the Path as a [css color](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
+- **lineBorderRadius:** _\(default 5px\)_ The color of the Path as a [css border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
+- **nodePadding:** _\(default 5px\)_ The left and right padding of every `<TreeNode>` as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
 
 ### `TreeNode` - A node in the tree
 
-* **label:** _**\(required\)**_ Any react `Node`
-* **children:** _**\(required\)**_ Any number of `<TreeNode>` 
+- **label:** _**\(required\)**_ Any react `Node`
+- **children:** _**\(required\)**_ Any number of `<TreeNode>`
 
 ## Motivation
 
@@ -90,9 +92,8 @@ I created `react-organizational-chart` because i could not find any other react 
 
 ## Alternatives
 
-* [org-chart](https://www.npmjs.com/package/orgchart) is highly customizable but can't render React components as nodes.
+- [org-chart](https://www.npmjs.com/package/orgchart) is highly customizable but can't render React components as nodes.
 
 ## License
 
 MIT © [daniel-hauser](https://github.com/daniel-hauser)
-
