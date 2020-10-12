@@ -5,6 +5,7 @@ import TreeNode, { TreeNodeProps } from './TreeNode';
 const TreeContainer = styled.ul<TreeProps>`
   padding-inline-start: 0;
   margin: 0;
+  display: flex;
 
   --line-height: ${({ lineHeight }) => lineHeight};
   --line-width: ${({ lineWidth }) => lineWidth};
