@@ -4,6 +4,10 @@ exports[`Tree Renders 1`] = `
 .emotion-5 {
   padding-inline-start: 0;
   margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   --line-height: 20px;
   --line-width: 1px;
   --line-color: black;
