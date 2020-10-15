@@ -1,8 +1,7 @@
-import Tree from '../Tree';
-import TreeNode from '../TreeNode';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import serializer from 'jest-emotion';
+import { Tree, TreeNode } from '../../index';
 
 expect.addSnapshotSerializer(serializer);
 
@@ -12,14 +11,13 @@ describe('Tree', () => {
   });
 
   it('Renders', () => {
-    const component = renderer.create(
+    const component = render(
       <Tree label={'Root'}>
         <TreeNode label={'Child'}>
           <TreeNode label={'Grand Child'} />
         </TreeNode>
       </Tree>
     );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(component.container.firstChild).toMatchSnapshot();
   });
 });

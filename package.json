@@ -15,8 +15,8 @@
     "npm": ">=5"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
+    "test": "jest ./src",
+    "test:watch": "jest ./src --watch",
     "build": "microbundle build --jsx React.createElement --external react",
     "start": "microbundle watch",
     "prepare": "npm run build",
@@ -31,22 +31,31 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.12.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.12.0",
+    "@testing-library/react": "^11.1.0",
     "@types/jest": "^25.1.1",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
-    "@types/react-test-renderer": "^16.9.2",
-    "cross-env": "^7.0.0",
+    "babel-jest": "^26.5.2",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
+    "jest": "^26.5.3",
     "jest-emotion": "^10.0.27",
     "microbundle": "^0.12.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "^3.4.3",
-    "react-test-renderer": "^16.12.0",
     "typescript": "^3.7.5"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
   },
   "prettier": {
     "printWidth": 80,

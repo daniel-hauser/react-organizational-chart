@@ -93,24 +93,24 @@ exports[`Tree Renders 1`] = `
 }
 
 <ul
-  className="emotion-5"
+  class="emotion-5"
 >
   <li
-    className="emotion-0"
+    class="emotion-0"
   >
     Root
     <ul
-      className="emotion-1"
+      class="emotion-1"
     >
       <li
-        className="emotion-0"
+        class="emotion-0"
       >
         Child
         <ul
-          className="emotion-1"
+          class="emotion-1"
         >
           <li
-            className="emotion-0"
+            class="emotion-0"
           >
             Grand Child
           </li>
