@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from 'react';
 import { Tree, TreeNode } from 'react-organizational-chart';
 import { css, jsx } from '@emotion/core';
 
