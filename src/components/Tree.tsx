@@ -1,24 +1,8 @@
+/** @jsx jsx */
 import * as React from 'react';
-import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/core';
+
 import TreeNode, { TreeNodeProps } from './TreeNode';
-
-const TreeContainer = styled.ul<TreeProps>`
-  padding-inline-start: 0;
-  margin: 0;
-  display: flex;
-
-  --line-height: ${({ lineHeight }) => lineHeight};
-  --line-width: ${({ lineWidth }) => lineWidth};
-  --line-color: ${({ lineColor }) => lineColor};
-  --line-border-radius: ${({ lineBorderRadius }) => lineBorderRadius};
-  --node-padding: ${({ nodePadding }) => nodePadding};
-
-  --tree-line-height: var(--line-height, 20px);
-  --tree-line-width: var(--line-width, 1px);
-  --tree-line-color: var(--line-color, black);
-  --tree-line-border-radius: var(--line-border-radius, 5px);
-  --tree-node-padding: var(--node-padding, 5px);
-`;
 
 type TreeProps = {
   lineHeight?: string;
@@ -38,15 +22,27 @@ function Tree({
   lineBorderRadius = '5px',
 }: TreeProps & TreeNodeProps) {
   return (
-    <TreeContainer
-      lineHeight={lineHeight}
-      lineWidth={lineWidth}
-      lineColor={lineColor}
-      nodePadding={nodePadding}
-      lineBorderRadius={lineBorderRadius}
+    <ul
+      css={css`
+        padding-inline-start: 0;
+        margin: 0;
+        display: flex;
+
+        --line-height: ${lineHeight};
+        --line-width: ${lineWidth};
+        --line-color: ${lineColor};
+        --line-border-radius: ${lineBorderRadius};
+        --node-padding: ${nodePadding};
+
+        --tree-line-height: var(--line-height, 20px);
+        --tree-line-width: var(--line-width, 1px);
+        --tree-line-color: var(--line-color, black);
+        --tree-line-border-radius: var(--line-border-radius, 5px);
+        --tree-node-padding: var(--node-padding, 5px);
+      `}
     >
       <TreeNode label={label}>{children}</TreeNode>
-    </TreeContainer>
+    </ul>
   );
 }
 

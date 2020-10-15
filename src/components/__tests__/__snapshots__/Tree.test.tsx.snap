@@ -35,10 +35,10 @@ exports[`Tree Renders 1`] = `
   content: '';
   position: absolute;
   top: 0;
+  height: var(--tree-line-height);
   right: 50%;
   width: 50%;
   border-top: var(--tree-line-width) solid var(--tree-line-color);
-  height: var(--tree-line-height);
 }
 
 .emotion-0::after {
@@ -46,12 +46,12 @@ exports[`Tree Renders 1`] = `
   border-left: var(--tree-line-width) solid var(--tree-line-color);
 }
 
-.emotion-0:only-child {
+.emotion-0:only-of-type {
   padding: 0;
 }
 
-.emotion-0:only-child::after,
-.emotion-0:only-child:before {
+.emotion-0:only-of-type::after,
+.emotion-0:only-of-type:before {
   display: none;
 }
 
@@ -86,10 +86,10 @@ exports[`Tree Renders 1`] = `
   content: '';
   position: absolute;
   top: 0;
+  height: var(--tree-line-height);
   left: 50%;
   width: 0;
   border-left: var(--tree-line-width) solid var(--tree-line-color);
-  height: var(--tree-line-height);
 }
 
 <ul

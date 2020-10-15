@@ -23,8 +23,7 @@
     "prettier": "prettier --write 'src/**/*.ts[x]'"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@emotion/styled": "^10.0.27"
+    "@emotion/core": "^10.0.27"
   },
   "peerDependencies": {
     "react": "^16.12.0",
