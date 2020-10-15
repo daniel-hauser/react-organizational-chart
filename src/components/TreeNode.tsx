@@ -12,6 +12,7 @@ const verticalLine = css`
   position: absolute;
   top: 0;
   height: var(--tree-line-height);
+  box-sizing: border-box;
 `;
 
 const childrenContainer = css`

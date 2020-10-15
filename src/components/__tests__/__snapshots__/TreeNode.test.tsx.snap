@@ -17,6 +17,7 @@ exports[`TreeNode Renders 1`] = `
   position: absolute;
   top: 0;
   height: var(--tree-line-height);
+  box-sizing: border-box;
   right: 50%;
   width: 50%;
   border-top: var(--tree-line-width) solid var(--tree-line-color);
