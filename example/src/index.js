@@ -1,11 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import styled from "@emotion/styled";
+/** @jsx jsx */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { css, jsx } from '@emotion/core';
 
-import StyledTreeExample from "./StyledTreeExample";
-import BasicTreeExample from "./BasicTreeExample";
+import StyledTreeExample from './StyledTreeExample';
+import BasicTreeExample from './BasicTreeExample';
 
-const Title = styled.h2`
+const title = css`
   margin-top: 5rem;
   :first-of-type {
     margin-top: 0;
@@ -14,14 +15,14 @@ const Title = styled.h2`
 
 function App() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <Title>Basic tree</Title>
+    <div style={{ textAlign: 'center' }}>
+      <h2 css={title}>Basic tree</h2>
       <BasicTreeExample />
-      <Title>Styled tree</Title>
+      <h2 css={title}>Styled tree</h2>
       <StyledTreeExample />
     </div>
   );
 }
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
