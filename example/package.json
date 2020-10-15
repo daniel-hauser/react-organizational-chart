@@ -5,16 +5,26 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "@emotion/core": "^10.0.27",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-organizational-chart": "file:..",
-    "react-scripts": "^1.1.4"
+    "react-scripts": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
