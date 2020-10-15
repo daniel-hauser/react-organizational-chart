@@ -20,9 +20,7 @@
     "build": "microbundle build --jsx React.createElement --external react",
     "start": "microbundle watch",
     "prepare": "npm run build",
-    "prettier": "prettier --write 'src/**/*.ts[x]'",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "prettier": "prettier --write 'src/**/*.ts[x]'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
