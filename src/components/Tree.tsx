@@ -4,14 +4,37 @@ import { css, jsx } from '@emotion/core';
 
 import TreeNode, { TreeNodeProps } from './TreeNode';
 
-type TreeProps = {
+export interface TreeProps {
+  /**
+   * The root label
+   * */
+  label: TreeNodeProps['label'];
+  /**
+   * The height of the line
+   */
   lineHeight?: string;
+  /**
+   * The width of the line
+   */
   lineWidth?: string;
+  /**
+   * The color of the line
+   */
   lineColor?: string;
+  /**
+   * The border radius of the line
+   */
   lineBorderRadius?: string;
+  /**
+   * The padding between siblings
+   */
   nodePadding?: string;
-};
+  children: TreeNodeProps['children'];
+}
 
+/**
+ * The root of the hierarchy tree
+ */
 function Tree({
   children,
   label,
@@ -20,7 +43,7 @@ function Tree({
   lineColor = 'black',
   nodePadding = '5px',
   lineBorderRadius = '5px',
-}: TreeProps & TreeNodeProps) {
+}: TreeProps) {
   return (
     <ul
       css={css`
@@ -46,4 +69,4 @@ function Tree({
   );
 }
 
-export default React.memo(Tree);
+export default Tree;

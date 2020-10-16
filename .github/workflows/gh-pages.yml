@@ -16,19 +16,13 @@ jobs:
         with:
           node-version: '12'
 
-      - name: Build lib
+      - name: Build storybook
         run: |
           npm ci
-          npm run build
-
-      - name: Build app
-        working-directory: ./example
-        run: |
-          npm ci
-          npm run build
+          npm run build-storybook --ci
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: example/build
+          publish_dir: storybook-static

@@ -79,6 +79,7 @@ exports[`Tree Renders 1`] = `
   display: -ms-flexbox;
   display: flex;
   padding-inline-start: 0;
+  margin: 0;
   padding-top: var(--tree-line-height);
   position: relative;
 }

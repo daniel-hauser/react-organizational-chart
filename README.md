@@ -31,7 +31,7 @@ const ExampleTree = () => (
 
 ### Styled tree
 
-![styled tree example](.gitbook/assets/styled_tree.png)
+![styled tree example](images/styled_tree.png)
 
 ```jsx
 const StyledNode = styled.div`
@@ -65,7 +65,7 @@ const StyledTreeExample = () => (
 );
 ```
 
-Working examples can be found [here](https://gkh4y.codesandbox.io/)
+Interactive examples can be found [here](https://daniel-hauser.github.io/react-organizational-chart/)
 
 ## Components
 

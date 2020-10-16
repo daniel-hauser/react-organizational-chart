@@ -4,6 +4,7 @@
     "target": "ESNext",
     "jsx": "react",
     "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
     "strict": true
   },
   "include": ["src"],

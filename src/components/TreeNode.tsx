@@ -1,11 +1,16 @@
 /** @jsx jsx */
 import * as React from 'react';
 import { css, jsx } from '@emotion/core';
+import type { ReactNode } from 'react';
 
-export type TreeNodeProps = React.PropsWithChildren<{
+export interface TreeNodeProps {
+  /**
+   * The node label
+   * */
   label: React.ReactNode;
   className?: string;
-}>;
+  children?: ReactNode;
+}
 
 const verticalLine = css`
   content: '';
@@ -18,6 +23,7 @@ const verticalLine = css`
 const childrenContainer = css`
   display: flex;
   padding-inline-start: 0;
+  margin: 0;
   padding-top: var(--tree-line-height);
   position: relative;
 

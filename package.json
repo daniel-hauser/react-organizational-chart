@@ -20,7 +20,9 @@
     "build": "microbundle build --jsx React.createElement --external react",
     "start": "microbundle watch",
     "prepare": "npm run build",
-    "prettier": "prettier --write 'src/**/*.ts[x]'"
+    "prettier": "prettier --write 'src/**/*.ts[x]'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook --docs"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27"
@@ -30,14 +32,20 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.1",
     "@babel/preset-env": "^7.12.0",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.12.0",
+    "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-essentials": "^6.0.26",
+    "@storybook/addon-links": "^6.0.26",
+    "@storybook/react": "^6.0.26",
     "@testing-library/react": "^11.1.0",
     "@types/jest": "^25.1.1",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
     "babel-jest": "^26.5.2",
+    "babel-loader": "^8.1.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "jest": "^26.5.3",
@@ -47,6 +55,7 @@
     "pretty-quick": "^2.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-is": "^16.13.1",
     "typescript": "^3.7.5"
   },
   "babel": {
