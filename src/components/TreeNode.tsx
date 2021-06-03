@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import * as React from 'react';
-import { css, jsx } from '@emotion/core';
+import { css, cx } from '@emotion/css';
 import type { ReactNode } from 'react';
 
 export interface TreeNodeProps {
@@ -87,10 +86,10 @@ const nodeLines = css`
 
 function TreeNode({ children, label, className }: TreeNodeProps) {
   return (
-    <li css={[node, nodeLines]} className={className}>
+    <li className={cx(node, nodeLines, className)}>
       {label}
       {React.Children.count(children) > 0 && (
-        <ul css={childrenContainer}>{children}</ul>
+        <ul className={childrenContainer}>{children}</ul>
       )}
     </li>
   );

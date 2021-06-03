@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/css';
 
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
@@ -48,7 +47,7 @@ StyledNodes.args = {
 function StyledNode({ children }: React.PropsWithChildren<{}>) {
   return (
     <div
-      css={css`
+      className={css`
         padding: 5px;
         border-radius: 8px;
         display: inline-block;
