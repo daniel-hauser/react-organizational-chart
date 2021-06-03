@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import * as React from 'react';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/css';
 
 import TreeNode, { TreeNodeProps } from './TreeNode';
 
@@ -46,7 +45,7 @@ function Tree({
 }: TreeProps) {
   return (
     <ul
-      css={css`
+      className={css`
         padding-inline-start: 0;
         margin: 0;
         display: flex;

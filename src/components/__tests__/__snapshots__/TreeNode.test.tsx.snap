@@ -37,6 +37,8 @@ exports[`TreeNode Renders 1`] = `
   display: none;
 }
 
+
+
 .emotion-0:first-of-type::before {
   border: 0 none;
 }
@@ -44,6 +46,8 @@ exports[`TreeNode Renders 1`] = `
 .emotion-0:first-of-type::after {
   border-radius: var(--tree-line-border-radius) 0 0 0;
 }
+
+
 
 .emotion-0:last-of-type::before {
   border-right: var(--tree-line-width) solid var(--tree-line-color);

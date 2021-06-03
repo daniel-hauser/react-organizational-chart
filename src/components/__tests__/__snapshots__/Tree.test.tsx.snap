@@ -1,7 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tree Renders 1`] = `
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-padding-start: 0;
+  padding-inline-start: 0;
+  margin: 0;
+  padding-top: var(--tree-line-height);
+  position: relative;
+}
+
+.emotion-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: var(--tree-line-height);
+  box-sizing: border-box;
+  left: 50%;
+  width: 0;
+  border-left: var(--tree-line-width) solid var(--tree-line-color);
+}
+
 .emotion-5 {
+  -webkit-padding-start: 0;
   padding-inline-start: 0;
   margin: 0;
   display: -webkit-box;
@@ -13,11 +37,11 @@ exports[`Tree Renders 1`] = `
   --line-color: black;
   --line-border-radius: 5px;
   --node-padding: 5px;
-  --tree-line-height: var(--line-height,20px);
-  --tree-line-width: var(--line-width,1px);
-  --tree-line-color: var(--line-color,black);
-  --tree-line-border-radius: var(--line-border-radius,5px);
-  --tree-node-padding: var(--node-padding,5px);
+  --tree-line-height: var(--line-height, 20px);
+  --tree-line-width: var(--line-width, 1px);
+  --tree-line-color: var(--line-color, black);
+  --tree-line-border-radius: var(--line-border-radius, 5px);
+  --tree-node-padding: var(--node-padding, 5px);
 }
 
 .emotion-0 {
@@ -56,6 +80,8 @@ exports[`Tree Renders 1`] = `
   display: none;
 }
 
+
+
 .emotion-0:first-of-type::before {
   border: 0 none;
 }
@@ -64,6 +90,8 @@ exports[`Tree Renders 1`] = `
   border-radius: var(--tree-line-border-radius) 0 0 0;
 }
 
+
+
 .emotion-0:last-of-type::before {
   border-right: var(--tree-line-width) solid var(--tree-line-color);
   border-radius: 0 var(--tree-line-border-radius) 0 0;
@@ -71,28 +99,6 @@ exports[`Tree Renders 1`] = `
 
 .emotion-0:last-of-type::after {
   border: 0 none;
-}
-
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding-inline-start: 0;
-  margin: 0;
-  padding-top: var(--tree-line-height);
-  position: relative;
-}
-
-.emotion-1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  height: var(--tree-line-height);
-  box-sizing: border-box;
-  left: 50%;
-  width: 0;
-  border-left: var(--tree-line-width) solid var(--tree-line-color);
 }
 
 <ul
