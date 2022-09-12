@@ -11,8 +11,8 @@
   "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
   "engines": {
-    "node": ">=8",
-    "npm": ">=5"
+    "node": ">=17",
+    "npm": ">=8"
   },
   "scripts": {
     "test": "jest ./src",
