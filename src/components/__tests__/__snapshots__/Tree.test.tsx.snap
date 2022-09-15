@@ -21,7 +21,7 @@ exports[`Tree Renders 1`] = `
   box-sizing: border-box;
   left: 50%;
   width: 0;
-  border-left: var(--tree-line-width) solid var(--tree-line-color);
+  border-left: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
 }
 
 .emotion-5 {
@@ -36,11 +36,13 @@ exports[`Tree Renders 1`] = `
   --line-width: 1px;
   --line-color: black;
   --line-border-radius: 5px;
+  --line-style: solid;
   --node-padding: 5px;
   --tree-line-height: var(--line-height, 20px);
   --tree-line-width: var(--line-width, 1px);
   --tree-line-color: var(--line-color, black);
   --tree-line-border-radius: var(--line-border-radius, 5px);
+  --tree-node-line-style: var(--line-style, solid);
   --tree-node-padding: var(--node-padding, 5px);
 }
 
@@ -63,12 +65,12 @@ exports[`Tree Renders 1`] = `
   box-sizing: border-box;
   right: 50%;
   width: 50%;
-  border-top: var(--tree-line-width) solid var(--tree-line-color);
+  border-top: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
 }
 
 .emotion-0::after {
   left: 50%;
-  border-left: var(--tree-line-width) solid var(--tree-line-color);
+  border-left: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
 }
 
 .emotion-0:only-of-type {
@@ -93,7 +95,7 @@ exports[`Tree Renders 1`] = `
 
 
 .emotion-0:last-of-type::before {
-  border-right: var(--tree-line-width) solid var(--tree-line-color);
+  border-right: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
   border-radius: 0 var(--tree-line-border-radius) 0 0;
 }
 

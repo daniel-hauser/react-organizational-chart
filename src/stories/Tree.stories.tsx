@@ -30,6 +30,7 @@ Styled.args = {
   lineColor: 'green',
   lineBorderRadius: '10px',
   lineHeight: '30px',
+  lineStyle: 'dotted',
 };
 
 export const StyledNodes: Story<TreeProps> = ({ label, ...args }) => (
