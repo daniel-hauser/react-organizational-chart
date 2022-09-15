@@ -30,7 +30,8 @@ const childrenContainer = css`
     ${verticalLine};
     left: 50%;
     width: 0;
-    border-left: var(--tree-line-width) solid var(--tree-line-color);
+    border-left: var(--tree-line-width) var(--tree-node-line-style)
+      var(--tree-line-color);
   }
 `;
 
@@ -49,11 +50,13 @@ const nodeLines = css`
     ${verticalLine};
     right: 50%;
     width: 50%;
-    border-top: var(--tree-line-width) solid var(--tree-line-color);
+    border-top: var(--tree-line-width) var(--tree-node-line-style)
+      var(--tree-line-color);
   }
   ::after {
     left: 50%;
-    border-left: var(--tree-line-width) solid var(--tree-line-color);
+    border-left: var(--tree-line-width) var(--tree-node-line-style)
+      var(--tree-line-color);
   }
 
   :only-of-type {
@@ -75,7 +78,8 @@ const nodeLines = css`
 
   :last-of-type {
     ::before {
-      border-right: var(--tree-line-width) solid var(--tree-line-color);
+      border-right: var(--tree-line-width) var(--tree-node-line-style)
+        var(--tree-line-color);
       border-radius: 0 var(--tree-line-border-radius) 0 0;
     }
     ::after {
