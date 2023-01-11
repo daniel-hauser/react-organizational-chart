@@ -88,15 +88,17 @@ const nodeLines = css`
   }
 `;
 
-function TreeNode({ children, label, className }: TreeNodeProps) {
-  return (
-    <li className={cx(node, nodeLines, className)}>
-      {label}
-      {React.Children.count(children) > 0 && (
-        <ul className={childrenContainer}>{children}</ul>
-      )}
-    </li>
-  );
-}
+const TreeNode = React.forwardRef<HTMLLIElement, TreeNodeProps>(
+  ({ children, label, className }, ref) => {
+    return (
+      <li ref={ref} className={cx(node, nodeLines, className)}>
+        {label}
+        {React.Children.count(children) > 0 && (
+          <ul className={childrenContainer}>{children}</ul>
+        )}
+      </li>
+    );
+  }
+);
 
 export default TreeNode;
