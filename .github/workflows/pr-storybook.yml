@@ -1,0 +1,47 @@
+name: PR storybook
+
+on:
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    env:
+      GHP_BASE_URL: https://${{ github.repository.owner }}.github.io/${{ github.event.repository.name }}
+      PR_PATH: pull/${{ github.event.number }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Comment on PR
+        uses: hasura/comment-progress@v2.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.number }}
+          id: deploy-preview
+          message: "⏳ Starting deployment of storybook for commit ${{ github.event.after }}"
+
+      - name: Build storybook
+        run: |
+          npm ci
+          npm run build-storybook --ci
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          destination_dir: ${{ env.PR_PATH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: storybook-static
+
+      - name: Update comment
+        uses: hasura/comment-progress@v2.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.number }}
+          id: deploy-preview
+          message: A storybook with all changes in this PR was deployed to ${{ env.GHP_BASE_URL }}/${{ env.PR_PATH }}.
+            
