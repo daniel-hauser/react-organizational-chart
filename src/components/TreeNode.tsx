@@ -28,7 +28,7 @@ const childrenContainer = css`
 
   ::before {
     ${verticalLine};
-    left: calc(50% - var(--tree-line-width) / 2);
+    left: 50%;
     width: 0;
     border-left: var(--tree-line-width) var(--tree-node-line-style)
       var(--tree-line-color);
