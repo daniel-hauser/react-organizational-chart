@@ -7,7 +7,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      GHP_BASE_URL: https://${{ github.repository.owner }}.github.io/${{ github.event.repository.name }}
+      GHP_BASE_URL: https://${{ github.event.repository.owner }}.github.io/${{ github.event.repository.name }}
       PR_PATH: pull/${{ github.event.number }}
     steps:
       - uses: actions/checkout@v3
