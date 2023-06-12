@@ -48,13 +48,13 @@ const nodeLines = css`
   ::before,
   ::after {
     ${verticalLine};
-    right: 50%;
-    width: 50%;
+    right: calc(50% - var(--tree-line-width) / 2);
+    width: calc(50% + var(--tree-line-width) / 2);
     border-top: var(--tree-line-width) var(--tree-node-line-style)
       var(--tree-line-color);
   }
   ::after {
-    left: 50%;
+    left: calc(50% - var(--tree-line-width) / 2);
     border-left: var(--tree-line-width) var(--tree-node-line-style)
       var(--tree-line-color);
   }
