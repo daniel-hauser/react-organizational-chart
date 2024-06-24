@@ -35,6 +35,7 @@ export interface TreeProps {
    */
   nodePadding?: string;
   children: TreeNodeProps['children'];
+  isHorizontal?: boolean;
 }
 
 /**
@@ -49,6 +50,7 @@ function Tree({
   nodePadding = '5px',
   lineStyle = 'solid',
   lineBorderRadius = '5px',
+  isHorizontal = false,
 }: TreeProps) {
   return (
     <ul
@@ -72,7 +74,9 @@ function Tree({
         --tree-node-padding: var(--node-padding, 5px);
       `}
     >
-      <TreeNode label={label}>{children}</TreeNode>
+      <TreeNode label={label} isHorizontal={isHorizontal}>
+        {children}
+      </TreeNode>
     </ul>
   );
 }

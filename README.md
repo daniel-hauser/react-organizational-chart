@@ -81,11 +81,13 @@ Accepts the following props:
 - **lineStyle:** _\(default solid\)_ The line style as a [css line-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-style#values)
 - **lineBorderRadius:** _\(default 5px\)_ The border radius of the Path as a [css border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
 - **nodePadding:** _\(default 5px\)_ The left and right padding of every `<TreeNode>` as a [css length](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+- **isHorizontal:** _\(default false\)_ View Mode: Vertical or Horizontal
 
 ### `TreeNode` - A node in the tree
 
 - **label:** _**\(required\)**_ Any react `Node`
 - **children:** _**\(required\)**_ Any number of `<TreeNode>`
+- **isHorizontal:** _\(default false\)_ View Mode: Vertical or Horizontal
 
 ## Motivation
 
