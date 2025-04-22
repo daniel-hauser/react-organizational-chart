@@ -14,14 +14,14 @@ export default {
 } as Meta;
 
 export const Basic: Story<TreeProps> = (args) => (
-  <Tree {...args} children={getNodes()} />
+  <Tree {...args} children={getNodes()} isHorizontal={true} />
 );
 Basic.args = {
   label: 'Root',
 };
 
 export const Styled: Story<TreeProps> = (args) => (
-  <Tree {...args} children={getNodes()} />
+  <Tree {...args} children={getNodes()} isHorizontal={true} />
 );
 
 Styled.args = {
@@ -38,6 +38,7 @@ export const StyledNodes: Story<TreeProps> = ({ label, ...args }) => (
     label={<StyledNode>{label}</StyledNode>}
     {...args}
     children={getNodes(StyledNode)}
+    isHorizontal={true}
   />
 );
 
@@ -62,18 +63,24 @@ function StyledNode({ children }: React.PropsWithChildren<{}>) {
 
 function getNodes(Label: React.ElementType = 'div') {
   return [
-    <TreeNode label={<Label>Child 1</Label>}>
-      <TreeNode label={<Label>Grand Child</Label>} />
+    <TreeNode label={<Label>Child 1</Label>} isHorizontal={true}>
+      <TreeNode label={<Label>Grand Child</Label>} isHorizontal={true} />
     </TreeNode>,
-    <TreeNode label={<Label>Child 2</Label>}>
-      <TreeNode label={<Label>Grand Child</Label>}>
-        <TreeNode label={<Label>Great Grand Child 1</Label>} />
-        <TreeNode label={<Label>Great Grand Child 2</Label>} />
+    <TreeNode label={<Label>Child 2</Label>} isHorizontal={true}>
+      <TreeNode label={<Label>Grand Child</Label>} isHorizontal={true}>
+        <TreeNode
+          label={<Label>Great Grand Child 1</Label>}
+          isHorizontal={true}
+        />
+        <TreeNode
+          label={<Label>Great Grand Child 2</Label>}
+          isHorizontal={true}
+        />
       </TreeNode>
     </TreeNode>,
-    <TreeNode label={<Label>Child 3</Label>}>
-      <TreeNode label={<Label>Grand Child 1</Label>} />
-      <TreeNode label={<Label>Grand Child 2</Label>} />
+    <TreeNode label={<Label>Child 3</Label>} isHorizontal={true}>
+      <TreeNode label={<Label>Grand Child 1</Label>} isHorizontal={true} />
+      <TreeNode label={<Label>Grand Child 2</Label>} isHorizontal={true} />
     </TreeNode>,
   ];
 }

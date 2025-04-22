@@ -9,6 +9,7 @@ export interface TreeNodeProps {
   label: React.ReactNode;
   className?: string;
   children?: ReactNode;
+  isHorizontal?: boolean;
 }
 
 const verticalLine = css`
@@ -19,7 +20,7 @@ const verticalLine = css`
   box-sizing: border-box;
 `;
 
-const childrenContainer = css`
+const childrenContainerVertical = css`
   display: flex;
   padding-inline-start: 0;
   margin: 0;
@@ -35,7 +36,7 @@ const childrenContainer = css`
   }
 `;
 
-const node = css`
+const nodeVertical = css`
   flex: auto;
   text-align: center;
   list-style-type: none;
@@ -44,7 +45,7 @@ const node = css`
     var(--tree-node-padding);
 `;
 
-const nodeLines = css`
+const nodeLinesVertical = css`
   ::before,
   ::after {
     ${verticalLine};
@@ -88,12 +89,128 @@ const nodeLines = css`
   }
 `;
 
-function TreeNode({ children, label, className }: TreeNodeProps) {
+const horizontalLine = css`
+  content: '';
+  position: absolute;
+  left: 0;
+  width: var(--tree-line-height);
+  box-sizing: border-box;
+  height: 100%;
+`;
+
+const childrenContainerHorizontal = css`
+  display: flex;
+  padding-inline-start: 0;
+  margin: 0;
+  padding-left: var(--tree-line-height);
+  position: relative;
+  flex-direction: column;
+
+  ::before {
+    ${horizontalLine};
+    top: calc(50% - var(--tree-line-width) / 2);
+    height: 0;
+    border-top: var(--tree-line-width) var(--tree-node-line-style)
+      var(--tree-line-color);
+  }
+`;
+
+const nodeHorizontal = css`
+  flex: auto;
+  text-align: center;
+  list-style-type: none;
+  display: flex;
+  position: relative;
+  padding: var(--tree-node-padding) 0 var(--tree-node-padding)
+    var(--tree-line-height);
+`;
+
+const nodeLinesHorizontal = css`
+  ::before,
+  ::after {
+    ${horizontalLine};
+    right: 50%;
+    border-top: 0;
+    top: 0;
+  }
+  ::after {
+    left: 0;
+    border-left: var(--tree-line-width) var(--tree-node-line-style)
+      var(--tree-line-color);
+  }
+
+  :before {
+    height: 50%;
+    border-top: var(--tree-line-width) var(--tree-node-line-style);
+    top: 50%;
+  }
+
+  :only-of-type {
+    padding: 0;
+    ::after,
+    :before {
+      display: none;
+    }
+  }
+
+  :first-of-type {
+    ::before {
+      border: 0 none;
+      height: 50%;
+    }
+    ::after {
+      border-radius: var(--tree-line-border-radius) 0 0 0;
+      top: 50%;
+      height: 50%;
+      border-top: var(--tree-line-width) var(--tree-node-line-style)
+        var(--tree-line-color);
+    }
+  }
+
+  :last-of-type {
+    ::before {
+      border-left: var(--tree-line-width) var(--tree-node-line-style)
+        var(--tree-line-color);
+      border-radius: 0 0 0 var(--tree-line-border-radius);
+      border-bottom: var(--tree-line-width) var(--tree-node-line-style)
+        var(--tree-line-color);
+      border-top: 0;
+      bottom: 50%;
+      height: 50%;
+      top: 0;
+    }
+    ::after {
+      border: 0 none;
+      height: 50%;
+    }
+  }
+`;
+
+function TreeNode({
+  children,
+  label,
+  className,
+  isHorizontal = false,
+}: TreeNodeProps) {
   return (
-    <li className={cx(node, nodeLines, className)}>
-      {label}
+    <li
+      className={
+        isHorizontal
+          ? cx(nodeHorizontal, nodeLinesHorizontal, className)
+          : cx(nodeVertical, nodeLinesVertical, className)
+      }
+    >
+      <span style={isHorizontal ? { alignSelf: 'center' } : {}}>{label}</span>
       {React.Children.count(children) > 0 && (
-        <ul className={childrenContainer}>{children}</ul>
+        <ul
+          className={
+            isHorizontal
+              ? childrenContainerHorizontal
+              : childrenContainerVertical
+          }
+        >
+          {children}
+        </ul>
       )}
     </li>
   );
