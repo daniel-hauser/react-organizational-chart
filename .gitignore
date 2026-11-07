@@ -6,6 +6,11 @@ node_modules
 
 # builds
 dist
+storybook-static
+playwright-report
+test-results
+.package-smoke
+*.tgz
 .rpt2_cache
 
 # misc

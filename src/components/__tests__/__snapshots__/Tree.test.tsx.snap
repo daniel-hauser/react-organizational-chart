@@ -1,30 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tree Renders 1`] = `
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-padding-start: 0;
-  padding-inline-start: 0;
-  margin: 0;
-  padding-top: var(--tree-line-height);
-  position: relative;
-}
-
-.emotion-1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  height: var(--tree-line-height);
-  box-sizing: border-box;
-  left: calc(50% - var(--tree-line-width) / 2);
-  width: 0;
-  border-left: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
-}
-
-.emotion-5 {
+exports[`Tree > preserves the nested list hierarchy and default connector variables 1`] = `
+.emotion-0 {
   -webkit-padding-start: 0;
   padding-inline-start: 0;
   margin: 0;
@@ -46,7 +23,7 @@ exports[`Tree Renders 1`] = `
   --tree-node-padding: var(--node-padding, 5px);
 }
 
-.emotion-0 {
+.emotion-1 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -56,8 +33,8 @@ exports[`Tree Renders 1`] = `
   padding: var(--tree-line-height) var(--tree-node-padding) 0 var(--tree-node-padding);
 }
 
-.emotion-0::before,
-.emotion-0::after {
+.emotion-1::before,
+.emotion-1::after {
   content: '';
   position: absolute;
   top: 0;
@@ -68,60 +45,79 @@ exports[`Tree Renders 1`] = `
   border-top: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
 }
 
-.emotion-0::after {
+.emotion-1::after {
   left: 50%;
   border-left: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
 }
 
-.emotion-0:only-of-type {
+.emotion-1:only-of-type {
   padding: 0;
 }
 
-.emotion-0:only-of-type::after,
-.emotion-0:only-of-type:before {
+.emotion-1:only-of-type::after,
+.emotion-1:only-of-type:before {
   display: none;
 }
 
-
-
-.emotion-0:first-of-type::before {
+.emotion-1:first-of-type::before {
   border: 0 none;
 }
 
-.emotion-0:first-of-type::after {
+.emotion-1:first-of-type::after {
   border-radius: var(--tree-line-border-radius) 0 0 0;
 }
 
-
-
-.emotion-0:last-of-type::before {
+.emotion-1:last-of-type::before {
   border-right: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
   border-radius: 0 var(--tree-line-border-radius) 0 0;
 }
 
-.emotion-0:last-of-type::after {
+.emotion-1:last-of-type::after {
   border: 0 none;
 }
 
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-padding-start: 0;
+  padding-inline-start: 0;
+  margin: 0;
+  padding-top: var(--tree-line-height);
+  position: relative;
+}
+
+.emotion-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: var(--tree-line-height);
+  box-sizing: border-box;
+  left: calc(50% - var(--tree-line-width) / 2);
+  width: 0;
+  border-left: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);
+}
+
 <ul
-  class="emotion-5"
+  class="emotion-0"
 >
   <li
-    class="emotion-0"
+    class="emotion-1"
   >
     Root
     <ul
-      class="emotion-1"
+      class="emotion-2"
     >
       <li
-        class="emotion-0"
+        class="emotion-1"
       >
         Child
         <ul
-          class="emotion-1"
+          class="emotion-2"
         >
           <li
-            class="emotion-0"
+            class="emotion-1"
           >
             Grand Child
           </li>

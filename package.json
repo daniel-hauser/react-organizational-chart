@@ -10,67 +10,75 @@
   "source": "src/index.tsx",
   "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.module.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
   "engines": {
     "node": ">=16",
     "npm": ">=8"
   },
   "scripts": {
-    "test": "jest ./src",
-    "test:watch": "jest ./src --watch",
-    "build": "microbundle build --jsx React.createElement --external react",
-    "start": "microbundle watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:browser": "playwright test",
+    "test:package": "node scripts/package-smoke.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "tsdown",
+    "start": "tsdown --watch",
     "prepare": "npm run build",
-    "prettier": "prettier --write 'src/**/*.ts[x]'",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --docs"
+    "prettier": "prettier --write .",
+    "format:check": "prettier --check .",
+    "size": "node scripts/bundle-size.mjs",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "preview-storybook": "vite preview --outDir storybook-static --port 6006 --strictPort"
   },
   "dependencies": {
-    "@emotion/css": "^11.7.1"
+    "@emotion/css": "^11.13.5"
   },
   "peerDependencies": {
     "react": ">= 16.12.0",
     "react-dom": ">= 16.12.0"
   },
-  "devDependencies": {
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
-    "@storybook/addon-actions": "^6.4.13",
-    "@storybook/addon-essentials": "^6.4.13",
-    "@storybook/addon-links": "^6.4.13",
-    "@storybook/react": "^6.4.13",
-    "@testing-library/react": "^11.2.7",
-    "@types/jest": "^25.1.1",
-    "@types/react": "^18.0.20",
-    "babel-jest": "^26.6.3",
-    "babel-loader": "^8.2.3",
-    "gh-pages": "^2.2.0",
-    "husky": "^4.3.8",
-    "jest": "^26.6.3",
-    "jest-emotion": "^10.0.27",
-    "microbundle": "^0.13.3",
-    "prettier": "^2.5.1",
-    "pretty-quick": "^2.0.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "typescript": "^3.9.10"
+  "overrides": {
+    "@joshwooding/vite-plugin-react-docgen-typescript": "0.9.1"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react",
-      "@babel/preset-typescript"
-    ]
+  "devDependencies": {
+    "@emotion/jest": "^11.14.2",
+    "@playwright/test": "1.65.0",
+    "@storybook/addon-docs": "~10.6.6",
+    "@storybook/addon-links": "~10.6.6",
+    "@storybook/react-vite": "~10.6.6",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^24.19.2",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "jsdom": "^27.4.0",
+    "prettier": "^3.9.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "storybook": "~10.6.6",
+    "tsdown": "^0.23.7",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
   },
   "prettier": {
     "printWidth": 80,
     "singleQuote": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "keywords": [
     "react",

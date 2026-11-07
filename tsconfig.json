@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "module": "ESNext",
-    "target": "ESNext",
+    "target": "ES2018",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "jsx": "react",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true
   },
-  "include": ["src"],
+  "include": ["src", ".storybook", "*.config.ts", "*.config.mts", "tests"],
   "exclude": ["node_modules", "build", "dist", "example"]
 }
