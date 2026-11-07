@@ -3,45 +3,65 @@ name: PR storybook
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build-storybook -- --disable-telemetry
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: storybook-preview
+          path: storybook-static
+          retention-days: 7
+
+  deploy:
+    needs: build
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     env:
-      GHP_BASE_URL: https://${{ github.event.repository.owner.login }}.github.io/${{ github.event.repository.name }}
       PR_PATH: pull/${{ github.event.number }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
-          node-version: 16
-
-      - name: Comment on PR
-        uses: hasura/comment-progress@v2.2.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          number: ${{ github.event.number }}
-          id: deploy-preview
-          message: "⏳ Starting deployment of storybook for commit ${{ github.event.after }}"
-
-      - name: Build storybook
-        run: |
-          npm ci
-          npm run build-storybook --ci
-
+          name: storybook-preview
+          path: storybook-static
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
         with:
           destination_dir: ${{ env.PR_PATH }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: storybook-static
-
-      - name: Update comment
-        uses: hasura/comment-progress@v2.2.0
+          keep_files: true
+      - name: Update preview comment
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          number: ${{ github.event.number }}
-          id: deploy-preview
-          message: A storybook with all changes in this PR was deployed to ${{ env.GHP_BASE_URL }}/${{ env.PR_PATH }}.
-            
+          script: |
+            const marker = '<!-- storybook-preview -->';
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const url = `https://${owner}.github.io/${repo}/pull/${issue_number}/`;
+            const body = `${marker}\nA Storybook with the changes in this PR was deployed to ${url} (${context.payload.pull_request.head.sha}).`;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number });
+            const previous = comments.find(comment => comment.user.login === 'github-actions[bot]' && comment.body?.includes(marker));
+            if (previous) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: previous.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }

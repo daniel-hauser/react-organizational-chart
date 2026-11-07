@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TreeNode Renders 1`] = `
+exports[`TreeNode > renders a leaf with its connector styles 1`] = `
 .emotion-0 {
   -webkit-flex: auto;
   -ms-flex: auto;
@@ -37,8 +37,6 @@ exports[`TreeNode Renders 1`] = `
   display: none;
 }
 
-
-
 .emotion-0:first-of-type::before {
   border: 0 none;
 }
@@ -46,8 +44,6 @@ exports[`TreeNode Renders 1`] = `
 .emotion-0:first-of-type::after {
   border-radius: var(--tree-line-border-radius) 0 0 0;
 }
-
-
 
 .emotion-0:last-of-type::before {
   border-right: var(--tree-line-width) var(--tree-node-line-style) var(--tree-line-color);

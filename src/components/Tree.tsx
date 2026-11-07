@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import type { ReactElement } from 'react';
 import { css } from '@emotion/css';
 
 import TreeNode, { TreeNodeProps } from './TreeNode';
@@ -49,7 +50,7 @@ function Tree({
   nodePadding = '5px',
   lineStyle = 'solid',
   lineBorderRadius = '5px',
-}: TreeProps) {
+}: TreeProps): ReactElement {
   return (
     <ul
       className={css`

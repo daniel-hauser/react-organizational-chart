@@ -1,12 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import { css, cx } from '@emotion/css';
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 export interface TreeNodeProps {
   /**
    * The node label
    * */
-  label: React.ReactNode;
+  label: ReactNode;
   className?: string;
   children?: ReactNode;
 }
@@ -88,7 +88,7 @@ const nodeLines = css`
   }
 `;
 
-function TreeNode({ children, label, className }: TreeNodeProps) {
+function TreeNode({ children, label, className }: TreeNodeProps): ReactElement {
   return (
     <li className={cx(node, nodeLines, className)}>
       {label}

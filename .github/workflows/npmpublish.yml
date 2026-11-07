@@ -6,14 +6,25 @@ on:
       - master
 jobs:
   publish:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
+    concurrency:
+      group: npm-publish
+      cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 16
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
       - run: npm ci
+      - run: npm run format:check
+      - run: npm run typecheck
       - run: npm test
-      - uses: JS-DevTools/npm-publish@v1
+      - run: npm run test:package
+      - uses: JS-DevTools/npm-publish@0fd2f4369c5d6bcfcde6091a7c527d810b9b5c3f # v4.1.5
         with:
           token: ${{ secrets.NPM_TOKEN }}
